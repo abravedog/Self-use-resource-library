@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="zh-CN">
+ <head> 
+  <meta charset="utf-8">  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="force-rendering" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+  <meta name="report" content="{&quot;pid&quot;: &quot;blog&quot;, &quot;spm&quot;:&quot;1001.2101&quot;}">  
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <link rel="alternate" media="handheld" href="#"> 
+  <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848"> 
+  <meta name="applicable-device" content="pc">  
+  <title>win10系统Qt5.12配置OpenCV4.0.1库教程暨Qt，OpenCV，Cmake详细下载安装教程（史上最全！）_qt加opencv能做什么</title>  
+  <meta name="keywords" content="qt加opencv能做什么"> 
+  <meta name="csdn-baidu-search" content="{&quot;autorun&quot;:true,&quot;install&quot;:true,&quot;keyword&quot;:&quot;qt加opencv能做什么&quot;}"> 
+  <meta name="description" content="文章浏览阅读2.1w次，点赞44次，收藏304次。神经网络与机器学习笔记软件准备QtOpenCVCmake如何改变文本的样式插入链接与图片如何插入一段漂亮的代码片生成一个适合你的列表创建一个表格设定内容居中、居左、居右SmartyPants创建一个自定义列表如何创建一个注脚注释也是必不可少的KaTeX数学公式新的甘特图功能，丰富你的文章UML 图表FLowchart流程图导出与导入导出导入软件准备首先要说的是装软件还是装最新的好，不用考虑各种..._qt加opencv能做什么"> 
+  <link rel="stylesheet" type="text/css" href="https://csdnimg.cn/release/blogv2/dist/pc/css/detail_enter-097f33faa6.min.css">  
+  <link rel="stylesheet" type="text/css" href="https://csdnimg.cn/release/blogv2/dist/pc/themesSkin/skin3-template/skin3-template-762f7595fd.min.css">    
+  <meta name="toolbar" content="{&quot;type&quot;:&quot;0&quot;,&quot;fixModel&quot;:&quot;1&quot;}">    
+  <link rel="stylesheet" type="text/css" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css"> 
+  <style>.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%} .MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%} .MathJax .MJX-monospace {font-family: monospace} .MathJax .MJX-sans-serif {font-family: sans-serif} #MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none} .MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0} .MathJax:focus, body :focus .MathJax {display: inline-table} .MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important} .MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none} img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important} .MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none} .MathJax nobr {white-space: nowrap!important} .MathJax img {display: inline!important; float: none!important} .MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none} .MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden} .MathJax_Processed {display: none!important} .MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none} .MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none} .MathJax_LineBox {display: table!important} .MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0} .MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)} .MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent} #MathJax_Tooltip * {filter: none; opacity: 1; background: transparent} @font-face {font-family: MathJax_Main; src: url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.2') format('woff'), url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.2') format('opentype')} @font-face {font-family: MathJax_Main-bold; src: url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.2') format('woff'), url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.2') format('opentype')} @font-face {font-family: MathJax_Main-italic; src: url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.2') format('woff'), url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.2') format('opentype')} @font-face {font-family: MathJax_Math-italic; src: url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.2') format('woff'), url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.2') format('opentype')} @font-face {font-family: MathJax_Caligraphic; src: url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.2') format('woff'), url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.2') format('opentype')} @font-face {font-family: MathJax_Size1; src: url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.2') format('woff'), url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.2') format('opentype')} @font-face {font-family: MathJax_Size2; src: url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.2') format('woff'), url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.2') format('opentype')} @font-face {font-family: MathJax_Size3; src: url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.2') format('woff'), url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.2') format('opentype')} @font-face {font-family: MathJax_Size4; src: url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.2') format('woff'), url('https://csdnimg.cn/release/blog_mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.2') format('opentype')} .MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}</style>    
+ </head> 
+ <body class="nodata  " style=""> 
+  <div id="toolbarBox" style="min-height: 48px;"></div>    
+  <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/pc/css/blog_code-01256533b5.min.css"> 
+  <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/chart-3456820cac.css"> 
+  <link rel="stylesheet" href="https://g.csdnimg.cn/lib/swiper/6.0.4/css/swiper.css">   
+  <div class="main_father clearfix  justify-content-center mainfather-concision" style="height:100%;"> 
+   <div class="container clearfix container-concision" id="mainBox" style="width:100%">  
+    <main style="width:100%">  
+     <div class="blog-content-box"> 
+      <div class="article-header-box"> 
+       <div class="article-header"> 
+        <div class="article-title-box"> 
+         <h1 class="title-article" id="articleContentId">win10系统Qt5.12配置OpenCV4.0.1库教程暨Qt，OpenCV，Cmake详细下载安装教程（史上最全！）</h1> 
+        </div>  
+       </div> 
+      </div> 
+      <div id="blogHuaweiyunAdvert"></div> 
+      <article class="baidu_pl"> 
+       <div id="article_content" class="article_content clearfix"> 
+        <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/kdoc_html_views-1a98987dfd.css"> 
+        <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/ck_htmledit_views-704d5b9767.css"> 
+        <div id="content_views" class="markdown_views prism-atom-one-dark"> 
+         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"> 
+          <path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path> 
+         </svg> 
+         <h2><a id="_2"></a>软件准备</h2> 
+         <p>首先要说的是装软件还是装最新的好，不用考虑各种软件的版本对应问题，都是最新版的情况下它们互相之间一定是兼容的，下边具体来说下需要的几个软件。</p> 
+         <blockquote> 
+          <p><strong>64位win10系统</strong><br> <strong>Qt 5.12.2</strong><br> <strong>Cmake 3.14.0</strong><br> <strong>OpenCV 4.0.1</strong></p> 
+         </blockquote> 
+         <p><strong>以下叙述顺序即为安装配置顺序</strong></p> 
+         <h3><a id="Qt_13"></a>Qt</h3> 
+         <h4><a id="Download_14"></a>Download</h4> 
+         <p>QT截止目前的最新版是5.12.2，链接：<a href="https://www.qt.io/download" rel="nofollow">https://www.qt.io/download</a>. 选择右边的Open Source版，土豪大佬也可直接选择Commercial版，点击<kbd>Go open source</kbd>之后，进入这样一个页面：<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F1083c4862c1baab50f82ee00370a7734.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> <strong>不要</strong>点击这里的<kbd>Download</kbd>，这里下载的Qt Online Installer，是在线安装，我试过两次，总是卡在99%，网上也有好多人出现这样的问题，所以建议下拉页面至这里：<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Fa417392effb98758508cc79b6fead736.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 点击下方的 <kbd>offline packages you can get them</kbd>，进入如下页面：<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F959de465de5ce5350df1e556ec9e9e3a.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 点击红色箭头指示链接即可下载qt-opensource-windows-x86-5.12.2.exe。</p> 
+         <h4><a id="Installation_19"></a>Installation</h4> 
+         <p><strong>本教程使用之前下载的Qt 5.12.1进行安装演示</strong><br> 点击上边下载好的qt-opensource-windows-x86-5.12.1.exe，出现如下页面，点击Next<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F3e5389bc8f221c94d70b6ed2db5c414c.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 此时需要提供你的Qt账号，注册一下登陆即可。再点击Next<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F2c3a20bbfea07d8c031d767a015afbe6.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 下一步<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Ff17e3eb15aeb684de948fae8ee332109.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 选择安装文件夹，此处我保持默认，点击下一步<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F9b83751333fbab0bbbdd1663ca6c70df.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 选择如下组件<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F17dcde96de31a8b02595b4efbd506f17.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"></p> 
+         <p><img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Fe563227c9a67899656b486bc680b9253.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 同意许可协议，点击下一步<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F3760431b9854ea4e1236f1e500464c54.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 此处直接点击下一步<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F6fd6e373b785d65ab8d8c8478d133d31.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 点击安装<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Fcfdea4fbb830a3e06751190e30e3bff9.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 默认选中Launch Qt Creator，打开Qt，点击完成<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Fa013141401db19e1b517342580e7bd93.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"></p> 
+         <h3><a id="Cmake_41"></a>Cmake</h3> 
+         <h4><a id="Download_42"></a>Download</h4> 
+         <p>Cmake截止目前的最新版本是3.14.0，链接：<a href="https://cmake.org/download/" rel="nofollow">https://cmake.org/download/</a>. 点击如下页面红色箭头所指链接下载<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F1cf238438259081a1f7c870b538f496a.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"></p> 
+         <h4><a id="Installation_45"></a>Installation</h4> 
+         <p>安装步骤如下所示：<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F74edf482a3d49754e488e846a8ae26a7.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F6c6ce5fbaac2733e468c8e2b1777e737.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F30a34140e062c859c130eefd1d856b02.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Fd7a4a92e714cd081d2715ad4b742229a.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Ff195ce0f84f2d2ffdc6d242e6311a7ae.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"></p> 
+         <h3><a id="OpenCV_52"></a>OpenCV</h3> 
+         <h4><a id="Download_53"></a>Download</h4> 
+         <p>OpenCV截止目前的最新版是4.0.1，链接：<a href="https://opencv.org/releases.html" rel="nofollow">https://opencv.org/releases.html</a>. 选择如下图所示中的两个都是可以的。<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F38ab99466d40d44ddeaa56c8c9e1a1c2.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 点击Sources下载得到opencv-4.0.1.zip，解压至E:\opencv-4.0.1-Sources之后得到下面的文件：<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F8267c644a77b8d0c8008862b5d86a285.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 点击Win pack下载得到opencv-4.0.1-vc14_vc15.exe，Extract to至E:\opencv-4.0.1-Win_pack之后得到下面的文件：<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F3b9a1e9039f0ac5fe69a45cd5c27a031.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 点开这里的sources文件夹，你会发现里边的文件和上边由opencv-4.0.1.zip解压出来的文件是一样的， 由于我们配置时只需要用到sources文件夹里的东西，所以你下载Sources还是Win pack都是可以的。<strong>这里为了叙述方便采用<kbd>Win pack</kbd>方式。</strong><br> 将mingw加入环境变量：</p> 
+         <blockquote> 
+          <p>右击<kbd>此电脑</kbd><br> 点击<kbd>属性</kbd><br> 点击左上角<kbd>高级系统设置</kbd><br> 点击高级页面下的<kbd>环境变量</kbd><br> 点击系统变量中的<kbd>Path</kbd><br> 点击<kbd>编辑</kbd><br> 点击<kbd>新建</kbd><br> C:\Qt\Qt5.12.1\Tools\mingw730_64\bin<br> 将该路径加入即可</p> 
+         </blockquote> 
+         <h2><a id="Compiling_OpenCV_68"></a>Compiling OpenCV</h2> 
+         <p>进入C:\Program Files\CMake\bin，点击cmake-gui.exe</p> 
+         <blockquote> 
+          <p>Where is the source code: E:/opencv-4.0.1-Win_pack/opencv/sources<br> Where to build the binaries: E:/opencv-4.0.1-Win_pack/opencv/opencv-build（这个文件夹要新建）</p> 
+         </blockquote> 
+         <p>点击Configure<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Fd983385b3bcd02d2aceeeed79dd8323d.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 保持默认MinGW Makefiles，点击Specify native compilers，再next<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Fd3437d21d39eb1d4b9685c2cfe7454a3.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> Compilers：</p> 
+         <blockquote> 
+          <p>C <kbd>C:/Qt/Qt5.12.1/Tools/mingw730_64/bin/gcc.exe</kbd><br> C++ <kbd>C:/Qt/Qt5.12.1/Tools/mingw730_64/bin/g++.exe</kbd><br> Fortran不用管</p> 
+         </blockquote> 
+         <p>点击Finish</p> 
+         <p><img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F54af95a5171a543813a2ed980edfbc9a.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> Configuring done之后，会出现一大片红的，不用管，下拉将<kbd>WITH_OPENGL</kbd>和<kbd>WITH_QT</kbd>选中即可，然后再次点击Configure<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Fc668c2104187fb7a711930c721620408.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 此时仍会有红色出现<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F6c0d49a09704a7f0c10a976475d3d05d.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"></p> 
+         <blockquote> 
+          <p>Set Qt5Concurrent_DIR to C:\Qt\Qt5.12.1\5.12.1\mingw73_64\lib\cmake\Qt5Concurrent<br> Set Qt5Core_DIR to C:\Qt\Qt5.12.1\5.12.1\mingw73_64\lib\cmake\Qt5Core<br> Set Qt5Gui_DIR to C:\Qt\Qt5.12.1\5.12.1\mingw73_64\lib\cmake\Qt5Gui<br> Set Qt5OpenGL_DIR to C:\Qt\Qt5.12.1\5.12.1\mingw73_64\lib\cmake\Qt5OpenGL<br> Set Qt5Test_DIR to C:\Qt\Qt5.12.1\5.12.1\mingw73_64\lib\cmake\Qt5Test<br> Set Qt5Widgets_DIR to C:\Qt\Qt5.12.1\5.12.1\mingw73_64\lib\cmake\Qt5Widgets</p> 
+         </blockquote> 
+         <p>按照上述设置将出现红色几个条框的Value进行更改<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F75dc1632a2828c79933dd908a0cd41f9.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 再次点击Configure之后，红色消失，最后点击Generate<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F3e067531e2de2cd5150efe6b5e2eb7e2.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> Generate完成之后，关闭Cmake即可，此时进入之前我们新建的文件夹</p> 
+         <blockquote> 
+          <p>E:\opencv-4.0.1-Win_pack\opencv\opencv-build</p> 
+         </blockquote> 
+         <p>即可看到刚才生成的文件<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F00baba3414e91e6d37c8eb08ed3e62a4.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 将鼠标放在该文件夹界面内，按住shift键，同时点击鼠标右键，点击<kbd>在此处打开Powershell窗口(s)</kbd>，进入Windows Powershell，输入</p> 
+         <blockquote> 
+          <p>mingw32-make -j 8</p> 
+         </blockquote> 
+         <p>按回车键执行该命令，这里的-j 8是为了让CPU进行多任务处理，可以加快编译速度。我的电脑是4核CPU，如果你的配置更高，你也可以选择更高的数字<br> 100%完成之后，输入</p> 
+         <blockquote> 
+          <p>mingw32-make install</p> 
+         </blockquote> 
+         <p>完成之后退出<br> 另外再将如下路径按照前述方式加入环境变量即可</p> 
+         <blockquote> 
+          <p>E:\opencv-4.0.1-Win_pack\opencv\opencv-build\install\x64\mingw\bin</p> 
+         </blockquote> 
+         <h2><a id="Qt_111"></a>测试程序：使用Qt显示图片</h2> 
+         <p>打开Qt，点击New Project<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F79958a7262e656f179e8e4c62f0cf3ea.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 默认使用Qt Widgets Application模板，直接点右下方Choose<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Fde201c024a2d3757e3b3cb2f64c3a34a.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 如图所示创建路径和项目名称，下一步<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F4b3b98a53ba57dc11eacc4bea3355ae9.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 默认MinGW，下一步<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F726f78057e455eb6e560924102cd9231.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 全部默认，下一步<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Fc93cfca120a6abce362057948ac0b378.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 完成<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F883cff6891bab3cb8e4c8a57d56e220c.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 在test.pro中红框位置加上如下代码</p> 
+         <blockquote> 
+          <p>INCLUDEPATH += E:\opencv-4.0.1-Sources\opencv-build\install\include<br> LIBS += E:\opencv-4.0.1-Sources\opencv-build\lib\libopencv_*.a</p> 
+         </blockquote> 
+         <p><strong>这个很重要，好多教程中这里都写错了</strong></p> 
+         <p><img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Fb6bc5489414ad4e9e84e152c564a3a14.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 在mainwindow.cpp中红框位置加上如下代码</p> 
+         <blockquote> 
+          <p>#include &lt;opencv2/core/core.hpp&gt;<br> #include &lt;opencv2/highgui/highgui.hpp&gt;<br> #include &lt;opencv2/imgproc/imgproc.hpp&gt;<br> using namespace cv;</p> 
+         </blockquote> 
+         <blockquote> 
+          <p>Mat image=imread(“E:\Fighting.jpg”,1);<br> namedWindow( “Display window”, WINDOW_AUTOSIZE );<br> imshow( “Display window”, image );</p> 
+         </blockquote> 
+         <p>不用理会此时出现的红色警告提示，选择菜单栏<kbd>构建</kbd>，<kbd>执行qmake</kbd>之后红色即会消失</p> 
+         <p><img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F3ae4041227bd28374dfcc442e49149e8.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 运行程序，显示出窗口和图片<br> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2Feb1f2f06fd8a655a9f710813b6c6aece.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="在这里插入图片描述"><br> 至此，大功告成！</p> 
+        </div> 
+        <link href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/markdown_views-a5d25dd831.css" rel="stylesheet"> 
+        <link href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/style-e504d6a974.css" rel="stylesheet"> 
+       </div> 
+      </article>  
+     </div> 
+     <div class="directory-boxshadow-dialog" style="display:none;"> 
+      <div class="directory-boxshadow-dialog-box"> 
+      </div> 
+      <div class="vip-limited-time-offer-box-new" id="vip-limited-time-offer-box-new"> 
+       <img class="limited-img limited-img-new" src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2Fvip-limited-close-newWhite.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230"> 
+       <div class="vip-limited-time-top">
+         确定要放弃本次机会？ 
+       </div> 
+       <span class="vip-limited-time-text">福利倒计时</span> 
+       <div class="limited-time-box-new"> 
+        <span class="time-hour"></span> 
+        <i>:</i> 
+        <span class="time-minite"></span> 
+        <i>:</i> 
+        <span class="time-second"></span> 
+       </div> 
+       <div class="limited-time-vip-box"> 
+        <p> <img class="coupon-img" src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2Fvip-limited-close-roup.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230"> <span class="def">立减 ¥</span> <span class="active limited-num"></span> </p> 
+        <span class="">普通VIP年卡可用</span> 
+       </div> 
+       <a class="limited-time-btn-new" href="https://mall.csdn.net/vip" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.9621&quot;}" data-report-query="spm=1001.2101.3001.9621">立即使用</a> 
+      </div> 
+     </div>    
+     <a id="commentBox" name="commentBox"></a>         
+    </main>     
+   </div> 
+   <div class="recommend-right align-items-stretch clearfix" id="rightAside" data-type="recommend"> 
+    <aside class="recommend-right_aside"> 
+     <div class="rightside-fixed-hide"> 
+     </div> 
+     <div id="recommend-right"> 
+      <div class="flex-column aside-box groupfile" id="groupfile"> 
+       <div class="groupfile-div"> 
+        <h3 class="aside-title">目录</h3> 
+        <div class="align-items-stretch group_item"> 
+         <div class="pos-box"> 
+          <div class="scroll-box"> 
+           <div class="toc-box"></div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="aside-box kind_person d-flex flex-column"> 
+       <h3 class="aside-title">分类专栏</h3> 
+       <div class="align-items-stretch kindof_item" id="kind_person_column"> 
+        <div class="aside-content"> 
+         <ul> 
+          <li> <a class="clearfix special-column-name" href="https://blog.csdn.net/weixin_42322013/category_9363324.html" data-report-click="{&quot;mod&quot;:&quot;popu_537&quot;,&quot;spm&quot;:&quot;1001.2101.3001.4137&quot;,&quot;strategy&quot;:&quot;pc付费专栏左侧入口&quot;,&quot;dest&quot;:&quot;https://blog.csdn.net/weixin_42322013/category_9363324.html&quot;,&quot;ab&quot;:&quot;new&quot;}"> 
+            <div class="special-column-bar "></div> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fcolumns%2Fdefault%2F20201014180756757.png%3Fx-oss-process%3Dimage%2Fresize%2Cm_fixed%2Ch_64%2Cw_64&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="" onerror="this.src='https://i-blog.csdnimg.cn/columns/default/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'"> <span class=""> 数据结构 </span> </a> <span class="special-column-num">1篇</span> </li> 
+          <li> <a class="clearfix special-column-name" href="https://blog.csdn.net/weixin_42322013/category_8806302.html" data-report-click="{&quot;mod&quot;:&quot;popu_537&quot;,&quot;spm&quot;:&quot;1001.2101.3001.4137&quot;,&quot;strategy&quot;:&quot;pc付费专栏左侧入口&quot;,&quot;dest&quot;:&quot;https://blog.csdn.net/weixin_42322013/category_8806302.html&quot;,&quot;ab&quot;:&quot;new&quot;}"> 
+            <div class="special-column-bar "></div> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fcolumns%2Fdefault%2F20201014180756738.png%3Fx-oss-process%3Dimage%2Fresize%2Cm_fixed%2Ch_64%2Cw_64&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt="" onerror="this.src='https://i-blog.csdnimg.cn/columns/default/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'"> <span class=""> 计算机视觉 </span> </a> <span class="special-column-num">2篇</span> </li> 
+         </ul> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </aside> 
+   </div> 
+   <div class="recommend-right1  align-items-stretch clearfix" id="rightAsideConcision" data-type="recommend"> 
+    <aside class="recommend-right_aside"> 
+     <div id="recommend-right-concision"> 
+      <div class="flex-column aside-box groupfile" id="groupfileConcision"> 
+       <div class="groupfile-div1"> 
+        <h3 class="aside-title">目录</h3> 
+        <div class="align-items-stretch group_item"> 
+         <div class="pos-box"> 
+          <div class="scroll-box"> 
+           <div class="toc-box"></div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </aside> 
+   </div> 
+  </div> 
+  <div class="mask-dark"></div> 
+  <div class="skin-boxshadow"></div> 
+  <div class="directory-boxshadow"></div> 
+  <div class="comment-side-box-shadow comment-side-tit-close" id="commentSideBoxshadow"> 
+   <div class="comment-side-content"> 
+    <div class="comment-side-tit"> 
+     <div class="comment-side-tit-count">
+      评论&nbsp;
+      <span class="count">29</span>
+     </div> 
+     <img class="comment-side-tit-close" src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2FcloseBt.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230">
+    </div>  
+    <div id="pcFlodCommentSideBox" class="pc-flodcomment-sidebox"> 
+     <div class="comment-fold-tit">
+      <span id="lookUnFlodComment" class="back"><img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2FcommentArrowLeftWhite.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt=""></span>被折叠的&nbsp;
+      <span class="count"></span>&nbsp;条评论 
+      <a href="https://blogdev.blog.csdn.net/article/details/122245662" class="tip" target="_blank">为什么被折叠?</a> 
+      <a href="https://bbs.csdn.net/forums/FreeZone" class="park" target="_blank"> <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2FiconPark.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230">到【灌水乐园】发言</a> 
+     </div> 
+     <div class="comment-fold-content"></div> 
+     <div id="lookBadComment" class="look-bad-comment side-look-comment"> 
+      <a class="look-more-comment">查看更多评论<img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2FcommentArrowDownWhite.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt=""></a> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="comment-rewarddialog-box"> 
+    <div class="form-box"> 
+     <div class="title-box">
+       添加红包 
+      <a class="btn-form-close"></a> 
+     </div> 
+     <form id="commentRewardForm"> 
+      <div class="ipt-box"> 
+       <label for="txtName">祝福语</label> 
+       <div class="ipt-btn-box"> 
+        <input type="text" name="name" id="txtName" autocomplete="off" maxlength="50"> 
+        <a class="btn-ipt btn-random"></a> 
+       </div> 
+       <p class="notice">请填写红包祝福语或标题</p> 
+      </div> 
+      <div class="ipt-box"> 
+       <label for="txtSendAmount">红包数量</label> 
+       <div class="ipt-txt-box"> 
+        <input type="text" name="sendAmount" maxlength="4" id="txtSendAmount" placeholder="请填写红包数量(最小10个)" autocomplete="off"> 
+        <span class="after-txt">个</span> 
+       </div> 
+       <p class="notice">红包个数最小为10个</p> 
+      </div> 
+      <div class="ipt-box"> 
+       <label for="txtMoney">红包总金额</label> 
+       <div class="ipt-txt-box error"> 
+        <input type="text" name="money" maxlength="5" id="txtMoney" placeholder="请填写总金额(最低5元)" autocomplete="off"> 
+        <span class="after-txt">元</span> 
+       </div> 
+       <p class="notice">红包金额最低5元</p> 
+      </div> 
+      <div class="balance-info-box"> 
+       <label>余额支付</label> 
+       <div class="balance-info">
+         当前余额
+        <span class="balance">3.43</span>元 
+        <a href="https://i.csdn.net/#/wallet/balance/recharge" class="link-charge" target="_blank">前往充值 &gt;</a> 
+       </div> 
+      </div> 
+      <div class="opt-box"> 
+       <div class="pay-info">
+         需支付：
+        <span class="price">10.00</span>元 
+       </div> 
+       <button type="button" class="ml-auto btn-cancel">取消</button> 
+       <button type="button" class="ml8 btn-submit" disabled="true">确定</button> 
+      </div> 
+     </form> 
+    </div> 
+   </div> 
+   <div class="rr-guide-box"> 
+    <div class="rr-first-box"> 
+     <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2FguideRedReward02.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt=""> 
+     <button class="btn-guide-known next">下一步</button> 
+    </div> 
+    <div class="rr-second-box"> 
+     <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2FguideRedReward03.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt=""> 
+     <button class="btn-guide-known known">知道了</button> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="redEnvolope" id="redEnvolope"> 
+   <div class="env-box"> 
+    <div class="env-container"> 
+     <div class="pre-open" id="preOpen"> 
+      <div class="top"> 
+       <header> 
+        <img class="clearTpaErr" :src="redpacketAuthor.avatar" alt="" src="https://ziquyun.com/main/csdn/img?url=&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230"> 
+        <div class="author">
+         成就一亿技术人!
+        </div> 
+       </header> 
+       <div class="bot-icon"></div> 
+      </div> 
+      <footer> 
+       <div class="red-openbtn open-start"></div> 
+       <div class="tip">
+         领取后你会自动成为博主和红包主的粉丝 
+        <a class="rule" target="_blank">规则</a> 
+       </div> 
+      </footer> 
+     </div> 
+     <div class="opened" id="opened"> 
+      <div class="bot-icon"> 
+       <header> 
+        <a class="creatorUrl" href="" target="_blank"> <img class="clearTpaErr" src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fprofile-avatar.csdnimg.cn%2Fdefault.jpg%212&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt=""> </a> 
+        <div class="author"> 
+         <div class="tt">
+          hope_wisdom
+         </div> 发出的红包 
+        </div> 
+       </header> 
+      </div> 
+      <div class="receive-box"> 
+       <header></header> 
+       <div class="receive-list"> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="close-btn"></div> 
+   </div> 
+  </div> 
+  <div class="pay-code"> 
+   <div class="pay-money">
+    实付
+    <span class="pay-money-span" data-nowprice="" data-oldprice="">元</span>
+   </div> 
+   <div class="content-blance">
+    <a class="blance-bt" href="javascript:;">使用余额支付</a>
+   </div> 
+   <div class="content-code"> 
+    <div id="payCode" data-id=""> 
+     <div class="renovate"> 
+      <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2Fpay-time-out.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230"> 
+      <span>点击重新获取</span> 
+     </div> 
+    </div> 
+    <div class="pay-style">
+     <span><img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2Fweixin.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230"></span>
+     <span><img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2Fzhifubao.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230"></span>
+     <span><img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2Fjingdong.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230"></span>
+     <span class="text">扫码支付</span>
+    </div> 
+   </div> 
+   <div class="bt-close"> 
+    <svg t="1567152543821" class="icon" viewbox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10924" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12"> 
+     <defs> 
+      <style type="text/css"></style> 
+     </defs> 
+     <path d="M512 438.378667L806.506667 143.893333a52.032 52.032 0 1 1 73.6 73.621334L585.621333 512l294.485334 294.485333a52.074667 52.074667 0 0 1-73.6 73.642667L512 585.621333 217.514667 880.128a52.053333 52.053333 0 1 1-73.621334-73.642667L438.378667 512 143.893333 217.514667a52.053333 52.053333 0 1 1 73.621334-73.621334L512 438.378667z" fill="" p-id="10925"></path> 
+    </svg> 
+   </div> 
+   <div class="pay-balance"> 
+    <input type="radio" class="pay-code-radio" data-type="details"> 
+    <span class="span">钱包余额</span> 
+    <span class="balance" style="color:#FC5531;font-size:14px;">0</span> 
+    <div class="pay-code-tile"> 
+     <img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2Fpay-help.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt=""> 
+     <div class="pay-code-content"> 
+      <div class="span"> 
+       <p class="title">抵扣说明：</p> 
+       <p> 1.余额是钱包充值的虚拟货币，按照1:1的比例进行支付金额的抵扣。<br> 2.余额无法直接购买下载，可以购买VIP、付费专栏及课程。</p> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <a class="pay-balance-con" href="https://i.csdn.net/#/wallet/balance/recharge" target="_blank"><img src="https://ziquyun.com/main/csdn/img?url=https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblogv2%2Fdist%2Fpc%2Fimg%2Frecharge.png&amp;rfUrl=https%3A%2F%2Fblog.csdn.net%2Fweixin_42322013%2Farticle%2Fdetails%2F88808230" alt=""><span>余额充值</span></a> 
+  </div> 
+  <div style="display:none;">  
+  </div> 
+  <div class="keyword-dec-box" id="keywordDecBox"></div>       
+  <link rel="stylesheet" href="https://g.csdnimg.cn/lib/cboxEditor/1.1.6/embed-editor.min.css"> 
+  <link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.6.12/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-light.css">                  
+ </body>
+</html>
